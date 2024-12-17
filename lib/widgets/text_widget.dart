@@ -3,16 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class textbuttonWidget extends StatelessWidget {
-  const textbuttonWidget({
+   textbuttonWidget({
     super.key,
     this.back,
     required this.text,
     required this.textcolor,
+    required this.calback
   });
 
   final back;
   final text;
   final textcolor;
+  Function calback;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class textbuttonWidget extends StatelessWidget {
           ),
         ),
       ),
-      onPressed: () {},
+      onPressed: () =>calback(text),
       child: Text(
         text,
         style: GoogleFonts.abel(
