@@ -21,6 +21,47 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void buttononclick(btnval) {
     print(btnval);
+    if (btnval == 'C') {
+      history = '';
+      numberdisplay = '';
+      firstnumber = 0;
+      secondnumber = 0;
+    } else if (btnval == 'Ac') {
+      history = '';
+      numberdisplay = '';
+      firstnumber = 0;
+      secondnumber = 0;
+    } else if (btnval == '+' ||
+        btnval == '-' ||
+        btnval == '*' ||
+        btnval == '/') {
+      firstnumber = int.parse(numberdisplay);
+      result = '';
+      operation = btnval;
+    } else if (btnval == '=') {
+      secondnumber = int.parse(numberdisplay);
+      if (operation == '+') {
+        result = (firstnumber + secondnumber).toString();
+      }
+      if (operation == '-') {
+        result = (firstnumber - secondnumber).toString();
+      }
+      if (operation == '*') {
+        result = (firstnumber * secondnumber).toString();
+      }
+      if (operation == '/') {
+        result = (firstnumber / secondnumber).toString();
+      }
+
+      history = firstnumber.toString() +
+          operation.toString() +
+          secondnumber.toString();
+    } else {
+      result = int.parse(numberdisplay + btnval).toString();
+    }
+    setState(() {
+      numberdisplay = result;
+    });
   }
 
   @override
@@ -36,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: EdgeInsets.only(right: 45, bottom: 20),
               alignment: Alignment.bottomRight,
               child: Text(
-                "29+23",
+                history,
                 style: GoogleFonts.abel(
                   fontSize: 20,
                   color: historycolor,
@@ -47,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: EdgeInsets.only(right: 45, bottom: 20),
               alignment: Alignment.bottomRight,
               child: Text(
-                "299",
+                numberdisplay,
                 style: GoogleFonts.abel(
                     fontSize: 26,
                     color: resultcolor,
@@ -187,7 +228,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 textbuttonWidget(
                   calback: buttononclick,
                   back: backbuttoncolor,
-                  text: "0",
+                  text: "=",
                   textcolor: textcolor,
                 ),
               ],
