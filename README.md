@@ -22,11 +22,4 @@ A simple and elegant calculator app built using Flutter. This app supports basic
 ## Getting Started 🚀
 
 
-### Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/calculator-app.git
-   cd calculator-app
-
-   
