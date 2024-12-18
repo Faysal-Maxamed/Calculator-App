@@ -1,8 +1,9 @@
 import 'package:calculator/themes.dart';
+import 'package:calculator/themes/theme_provider.dart';
 import 'package:calculator/widgets/text_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,7 +24,6 @@ class _HomeScreenState extends State<HomeScreen> {
     print(btnval);
     if (btnval == 'C') {
       history = '';
-      numberdisplay = '';
       firstnumber = 0;
       secondnumber = 0;
     } else if (btnval == 'Ac') {
@@ -31,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
       numberdisplay = '';
       firstnumber = 0;
       secondnumber = 0;
+      result = '';
     } else if (btnval == '+' ||
         btnval == '-' ||
         btnval == '*' ||
@@ -67,12 +68,18 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backlight,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 25),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
+            ElevatedButton(
+              onPressed: () =>
+                  Provider.of<ThemeProvider>(context, listen: false)
+                      .ontoggletheme(),
+              child: Text("mm"),
+            ),
             Container(
               padding: EdgeInsets.only(right: 45, bottom: 20),
               alignment: Alignment.bottomRight,
@@ -80,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 history,
                 style: GoogleFonts.abel(
                   fontSize: 20,
-                  color: historycolor,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ),
             ),
@@ -91,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 numberdisplay,
                 style: GoogleFonts.abel(
                     fontSize: 26,
-                    color: resultcolor,
+                    color: Theme.of(context).colorScheme.primary,
                     fontWeight: FontWeight.bold),
               ),
             ),
@@ -116,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 textbuttonWidget(
                   calback: buttononclick,
                   text: "/",
-                  textcolor: backbuttoncolor,
+                  textcolor: Theme.of(context).colorScheme.primary,
                 ),
               ],
             ),
@@ -129,22 +136,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 textbuttonWidget(
                   calback: buttononclick,
                   text: "7",
-                  textcolor: textcolor,
+                  textcolor: Theme.of(context).colorScheme.primary,
                 ),
                 textbuttonWidget(
                   calback: buttononclick,
                   text: "8",
-                  textcolor: textcolor,
+                  textcolor: Theme.of(context).colorScheme.primary,
                 ),
                 textbuttonWidget(
                   calback: buttononclick,
                   text: "9",
-                  textcolor: textcolor,
+                  textcolor: Theme.of(context).colorScheme.primary,
                 ),
                 textbuttonWidget(
                   calback: buttononclick,
                   text: "*",
-                  textcolor: backbuttoncolor,
+                  textcolor: Theme.of(context).colorScheme.primary,
                 ),
               ],
             ),
@@ -157,22 +164,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 textbuttonWidget(
                   calback: buttononclick,
                   text: "4",
-                  textcolor: textcolor,
+                  textcolor: Theme.of(context).colorScheme.primary,
                 ),
                 textbuttonWidget(
                   calback: buttononclick,
                   text: "5",
-                  textcolor: textcolor,
+                  textcolor: Theme.of(context).colorScheme.primary,
                 ),
                 textbuttonWidget(
                   calback: buttononclick,
                   text: "6",
-                  textcolor: textcolor,
+                  textcolor: Theme.of(context).colorScheme.primary,
                 ),
                 textbuttonWidget(
                   calback: buttononclick,
                   text: "-",
-                  textcolor: backbuttoncolor,
+                  textcolor: Theme.of(context).colorScheme.primary,
                 ),
               ],
             ),
@@ -185,22 +192,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 textbuttonWidget(
                   calback: buttononclick,
                   text: "1",
-                  textcolor: textcolor,
+                  textcolor: Theme.of(context).colorScheme.primary,
                 ),
                 textbuttonWidget(
                   calback: buttononclick,
                   text: "2",
-                  textcolor: textcolor,
+                  textcolor: Theme.of(context).colorScheme.primary,
                 ),
                 textbuttonWidget(
                   calback: buttononclick,
                   text: "3",
-                  textcolor: textcolor,
+                  textcolor: Theme.of(context).colorScheme.primary,
                 ),
                 textbuttonWidget(
                   text: "+",
                   calback: buttononclick,
-                  textcolor: backbuttoncolor,
+                  textcolor: Theme.of(context).colorScheme.primary,
                 ),
               ],
             ),
@@ -213,23 +220,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 textbuttonWidget(
                   calback: buttononclick,
                   text: "0",
-                  textcolor: textcolor,
+                  textcolor: Theme.of(context).colorScheme.primary,
                 ),
                 textbuttonWidget(
                   calback: buttononclick,
                   text: "00",
-                  textcolor: textcolor,
+                  textcolor: Theme.of(context).colorScheme.primary,
                 ),
                 textbuttonWidget(
                   calback: buttononclick,
                   text: ".",
-                  textcolor: textcolor,
+                  textcolor: Theme.of(context).colorScheme.primary,
                 ),
                 textbuttonWidget(
                   calback: buttononclick,
                   back: backbuttoncolor,
                   text: "=",
-                  textcolor: textcolor,
+                  textcolor: Theme.of(context).colorScheme.primary,
                 ),
               ],
             ),
