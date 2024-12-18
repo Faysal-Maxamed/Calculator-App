@@ -15,9 +15,6 @@ A simple and elegant calculator app built using Flutter. This app supports basic
 
 ## Screenshots 📸
 
-| Light Theme | Dark Theme |
-|-------------|------------|
-| ![Light Theme](link-to-light-theme-image) | ![Dark Theme](link-to-dark-theme-image) |
 
 ![file cover - 1](https://github.com/user-attachments/assets/1e0e6298-57cb-4c8f-bf94-a6d6fcaa7d34)
 
